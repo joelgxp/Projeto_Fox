@@ -23,8 +23,8 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: | 
-            joelgxp/clinica-django:${{github.run_number}}
-            joelgxp/clinica-django:latest
+            joelgxp/fox-django:${{github.run_number}}
+            joelgxp/fox-django:latest
 
       - name: Build and push Docker images Nginx
         uses: docker/build-push-action@v5.1.0
@@ -33,8 +33,8 @@ jobs:
           file: ./nginx/Dockerfile
           push: true
           tags: | 
-            joelgxp/clinica-nginx:${{github.run_number}}
-            joelgxp/clinica-nginx:latest
+            joelgxp/fox-nginx:${{github.run_number}}
+            joelgxp/fox-nginx:latest
 
       
         
