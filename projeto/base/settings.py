@@ -19,9 +19,9 @@ ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = ['http://*', 'https://*', 'http://192.168.14.200:9002', 'https://192.168.14.200:9002', 'http://localhost:9002', 'https://localhost:9002', 'http://146.235.38.10']
 
-
 TEMPLATES_DIR = BASE_DIR / 'templates'
 
+SECURE_SSL_REDIRECT = True
 
 # Application definition
 
