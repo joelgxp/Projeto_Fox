@@ -48,7 +48,9 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           dir
-          cd /compose-fox
+          cd compose-fox
+          docker pull joelgxp/fox-django:latest
+          docker-compose down
           docker-compose up -d
         
           
