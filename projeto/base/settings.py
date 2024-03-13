@@ -21,7 +21,7 @@ CSRF_TRUSTED_ORIGINS = ['http://*', 'https://*', 'http://192.168.14.200:9002', '
 
 TEMPLATES_DIR = BASE_DIR / 'templates'
 
-SECURE_SSL_REDIRECT = True
+#SECURE_SSL_REDIRECT = True
 
 # Application definition
 

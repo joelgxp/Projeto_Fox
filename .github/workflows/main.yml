@@ -50,6 +50,7 @@ jobs:
           dir
           cd compose-fox
           docker pull joelgxp/fox-django:latest
+          docker pull joelgxp/fox-nginx:latest
           docker-compose down
           docker-compose up -d
         
