@@ -48,8 +48,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           dir
-          cd /copmpose-fox
-          docker-compose pull
+          cd /compose-fox
           docker-compose up -d
         
           
