@@ -1,4 +1,4 @@
 !/bin/sh
 #python manage.py migrate --no-input
-python manage.py collectstatic
+#python manage.py collectstatic
 gunicorn base.wsgi:application --bind 0.0.0.0:8000
