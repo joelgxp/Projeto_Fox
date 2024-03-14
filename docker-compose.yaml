@@ -3,7 +3,7 @@ version: '3.8'
 services:
   django_gunicorn:
     volumes:
-      - static:/static
+      - static_volume:/app/static
     build:
       context: .
     image: joelgxp/fox-django:latest
@@ -14,11 +14,11 @@ services:
     build: ./nginx
     image: joelgxp/fox-nginx:latest
     volumes:
-      - static:/static
+      - static_volume:/static
     ports:
       - 80:80
     depends_on:
       - django_gunicorn
 
 volumes:
-  static:
+  static_volume:
