@@ -63,7 +63,7 @@
                             aria-controls="yearly-sales-collapse"><i class="ri-subtract-line"></i></a>
                         <a href="#" data-bs-toggle="remove"><i class="ri-close-line"></i></a>
                     </div>
-                    <h5 class="header-title mb-0">Fila de atendimento</h5>
+                    <h5 class="header-title mb-0">Oficinas</h5>
                 </div>
 
                 <div id="yearly-sales-collapse" class="collapse show">
@@ -72,19 +72,19 @@
                         <table class="table table-nowrap table-hover mb-0">
                             <thead>
                                 <tr>
-                                    <th>Guia</th>
-                                    <th>Nome</th>
-                                    <th>Data do exame</th>
+                                    <th>Placa</th>
+                                    <th>Modelo</th>
+                                    <th>Data de entrada</th>
                                     <th>Solicitição</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for paciente in pacientes_em_atendimento %}
+                                {% for veiculo in veiculos %}
                                 <tr>
-                                    <td>{{ paciente.guia }}</td>
-                                    <td>{{ paciente.nome_completo }}</td>
-                                    <td>{{ paciente.hora_cadastro }}</td>
-                                    <td>{{ paciente.solicitacao }}</td>
+                                    <td>{{ veiculo.guia }}</td>
+                                    <td>{{ veiculo.nome_completo }}</td>
+                                    <td>{{ veiculo.hora_cadastro }}</td>
+                                    <td>{{ veiculo.solicitacao }}</td>
                                 </tr>
                                 {% endfor %}                               
                             </tbody>
@@ -109,7 +109,7 @@
                             aria-controls="yearly-sales-collapse"><i class="ri-subtract-line"></i></a>
                         <a href="#" data-bs-toggle="remove"><i class="ri-close-line"></i></a>
                     </div>
-                    <h5 class="header-title mb-0">Atendidos</h5>
+                    <h5 class="header-title mb-0">Loja</h5>
                 </div>
 
                 <div id="yearly-sales-collapse" class="collapse show">
@@ -118,19 +118,19 @@
                         <table class="table table-nowrap table-hover mb-0">
                             <thead>
                                 <tr>
-                                    <th>Guia</th>
-                                    <th>Nome</th>
-                                    <th>Solicitação</th>
-                                    <th>Conclusão</th>
+                                    <th>Placa</th>
+                                    <th>Modelo</th>
+                                    <th>Data de entrada</th>
+                                    <th>Solicitição</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for paciente in pacientes_atendidos %}
+                                {% for veiculo in veiculos %}
                                 <tr>
-                                    <td>{{ paciente.paciente.guia }}</td>
-                                    <td>{{ paciente.paciente.nome_completo }}</td>
-                                    <td>{{ paciente.paciente.solicitacao }}</td>
-                                    <td>{{ paciente.conclusao }}</td>
+                                    <td>{{ veiculo.guia }}</td>
+                                    <td>{{ veiculo.nome_completo }}</td>
+                                    <td>{{ veiculo.hora_cadastro }}</td>
+                                    <td>{{ veiculo.solicitacao }}</td>
                                 </tr>
                                 {% endfor %}                               
                             </tbody>

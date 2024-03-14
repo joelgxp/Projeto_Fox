@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
-from ..models import Veiculo
+from ..models import Veiculo, VeiculoForm
 
 @login_required
 def get_veiculos(request):
@@ -15,19 +17,30 @@ def get_veiculo(request, placa):
 
 @login_required
 def create_veiculo(request):
-    if request.method == 'GET':
-        return render(request, 'veiculo/cadastro.html')
     
-    Veiculo.objects.create(
-        placa=request.POST.get('placa'),
-        renavam=request.POST.get('renavam'),
-        chassi=request.POST.get('chassi'),
-        cor=request.POST.get('cor'),
-        marca=request.POST.get('marca'),
-        modelo=request.POST.get('modelo'),
-        ano_fabricacao=request.POST.get('anoFabricacao'),
-        ano_fabricacao_modelo=request.POST.get('anoModelo'),
-        data_entrada=request.POST.get('dataEntrada'),
-        complemento=request.POST.get('complemento'),
-    )
-    return render(request, 'veiculo/cadastro.html')
+    if request.method == 'POST':
+        form = VeiculoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('veiculos'))
+        else:
+            print('erro')
+    else:
+        form = VeiculoForm()
+        
+    return render(request, 'veiculo/cadastro.html', {'form': form})
+
+@login_required
+def update_veiculo(request, id):
+    veiculo = Veiculo.objects.get(id=id)
+    
+    if request.method == 'POST':
+        form = VeiculoForm(request.POST, instance=veiculo)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('veiculos'))
+        else:            
+            print('erro')
+    else:
+        form = VeiculoForm(instance=veiculo)
+    return render(request, 'veiculo/editar.html', {'form': form, 'veiculo': veiculo})

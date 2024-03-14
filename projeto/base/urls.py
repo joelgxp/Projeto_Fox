@@ -34,5 +34,6 @@ urlpatterns = [
     
     path('veiculos/', veiculo_view.get_veiculos, name='veiculos'),
     path('veiculo/cadastro', veiculo_view.create_veiculo, name='cadastro_veiculo'),
+    path('veiculo/editar/<int:id>', veiculo_view.update_veiculo, name='veiculo_editar'),
     
 ]

@@ -8,7 +8,7 @@
             <div class="page-title-left">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="/">App</a></li>
-                    <li class="breadcrumb-item"><a href="/paciente">Paciente</a></li>
+                    <li class="breadcrumb-item"><a href="/veiculos">Veículo</a></li>
                     <li class="breadcrumb-item active">Editar</li>
                 </ol>
             </div>
@@ -21,7 +21,7 @@
 
 <div class="content">
     <div class="modal-body">
-        <h2 class="mt-0 mb-4">Editar Paciente</h2>
+        <h2 class="mt-0 mb-4">Editar Veículo</h2>
         <!-- Exibir erros do formulário -->
         {% if form.errors %}
         <ul>
@@ -33,142 +33,69 @@
         </ul>
         {% endif %}
 
-        <form class="ps-3 pe-3" action="/paciente/editar/{{paciente.id}}/" method="POST">
+        <form class="ps-3 pe-3" action="/veiculo/editar/{{veiculo.id}}/" method="POST">
             {% csrf_token %}
             <div class="row mb-3">
                 <div class="form-group col-2">
-                    <label for="guia">Guia</label>
-                    {{ form.guia }}
+                    <label for="placa">Placa</label>
+                    {{ form.placa }}
                 </div>
 
                 <div class="form-group col-2">
-                    <label for="registro">Registro</label>
-                    {{ form.registro }}
+                    <label for="marca">Marca</label>
+                    {{ form.marca }}
                 </div>
 
                 <div class="form-group col-2">
-                    <label for="categoria">Categoria</label>
-                    {{ form.categoria }}
+                    <label for="modelo">Modelo</label>
+                    {{ form.modelo }}
                 </div>
 
                 <div class="form-group col-2">
-                    <label for="dataCadastro">Data Cadastro</label>
-                    {{ form.data_cadastro }}
+                    <label for="data_entrada">Data Entrada</label>
+                    {{ form.data_entrada }}
                 </div>
 
-                <div class="form-group col-2">
-                    <label for="dataHabilitacao">Data Habilitação</label>
-                    {{ form.data_habilitacao }}
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="form-group col-6">
-                    <label for="nome">Nome</label>
-                    {{ form.nome_completo }}
-                </div>
-
-                <div class="form-group col">
-                    <label for="dataNascimento">Data de Nascimento</label>
-                    {{ form.data_nascimento }}
-                </div>
-
-                <div class="form-group col">
-                    <label for="sexo">Sexo</label>
-                    {{ form.sexo }}
-                </div>
             </div>
 
             <div class="row mb-3">
                 <div class="form-group col-2">
-                    <label for="ufIdentidade">UF Identidade</label>
-                    {{ form.uf_emissor }}
+                    <label for="anoFabricacao">Ano Fabricação</label>
+                    {{ form.ano_fabricacao }}
                 </div>
 
                 <div class="form-group col-2">
-                    <label for="identidade">Identidade</label>
-                    {{ form.identidade }}
+                    <label for="anoModelo">Ano Modelo</label>
+                    {{ form.ano_fabricacao_modelo }}
                 </div>
 
                 <div class="form-group col-2">
-                    <label for="orgao">Órgão</label>
-                    {{ form.orgao_emissor }}
+                    <label for="cor">Cor</label>
+                    {{ form.cor }}
                 </div>
+            </div>
 
-                <div class="form-group col-2">
-                    <label for="ufNaturalidade">UF Naturalidade</label>
-                    {{ form.uf_naturalidade }}
-                </div>
-
+            <div class="row mb-3">
                 <div class="form-group col-3">
-                    <label for="naturalidade">Naturalidade</label>
-                    {{ form.naturalidade }}
+                    <label for="chassi">Chassi</label>
+                    {{ form.chassi }}
                 </div>
 
-            </div>
-
-
-            <div class="row mb-3">
-                <div class="form-group col-6">
-                    <label for="nomeMae">Nome da mãe</label>
-                    {{ form.nome_mae }}
-                </div>
-
-                <div class="form-group col-6">
-                    <label for="nomePai">Nome do pai</label>
-                    {{ form.nome_pai }}
+                <div class="form-group col-2">
+                    <label for="renavam">Renavam</label>
+                    {{ form.renavam }}
                 </div>
             </div>
 
             <div class="row mb-3">
-                <div class="form-group col-7">
-                    <label for="logradouro">Logradouro</label>
-                    {{ form.logradouro }}
-                </div>
 
                 <div class="form-group col-2">
-                    <label for="numero">Número</label>
-                    {{ form.numero }}
-                </div>
-
-                <div class="form-group col">
-                    <label for="bairro">Bairro</label>
-                    {{ form.bairro }}
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="form-group col-2">
-                    <label for="ufCidade">UF Cidade</label>
-                    {{ form.uf_cidade }}
-                </div>
-
-                <div class="form-group col">
-                    <label for="cidade">Cidade</label>
-                    {{ form.cidade }}
-                </div>
-
-                <div class="form-group col-2">
-                    <label for="cep">CEP</label>
-                    {{ form.cep }}
-                </div>
-
-                <div class="form-group col-3">
                     <label for="complemento">Complemento</label>
                     {{ form.complemento }}
                 </div>
+
             </div>
 
-            <div class="row mb-3">
-                <div class="form-group col-3">
-                    <label for="cpf">CPF</label>
-                    {{ form.cpf }}
-                </div>
-                <div class="form-group col-3">
-                    <label for="telefone">Telefone</label>
-                    {{ form.celular }}
-                </div>
-            </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
 
         </form>

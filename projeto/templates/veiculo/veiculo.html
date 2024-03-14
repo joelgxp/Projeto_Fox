@@ -64,15 +64,8 @@
                                     <td>{{ veiculo.ano_modelo }}</td>
                                     <td>{{ veiculo.data_entrada | date:"d/m/Y" }}</td>
                                     <td>
-                                        <a href="{% url 'paciente_editar' paciente.id %}" class="text-reset fs-16 px-1"
+                                        <a href="{% url 'veiculo_editar' veiculo.id %}" class="text-reset fs-16 px-1"
                                             title="Editar"> <i class="ri-edit-2-line"></i></a>
-                                        <a href="{% url 'paciente_ficha_impressao' paciente.id %}"
-                                            class="text-reset fs-16 px-1" title="Imprimir Ficha"> <i
-                                                class="ri-printer-line"></i></a>
-                                        <a href="{% url 'paciente_exames_lista' paciente.id %}"
-                                            class="text-reset fs-16 px-1" title="Ver Exames"> <i
-                                                class="ri-eye-line"></i></a>
-
                                     </td>
                                 </tr>
                                 {% endfor %}
