@@ -47,7 +47,6 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          dir
           cd compose-fox
           docker pull joelgxp/fox-django:latest
           docker pull joelgxp/fox-nginx:latest
