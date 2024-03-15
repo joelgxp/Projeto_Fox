@@ -9,12 +9,17 @@ def get_ordem_servico(request):
 def create_ordem_servico(request):
     if request.method == 'POST':
         nomes_itens = request.POST.getlist('nome_item')
-        print(nomes_itens)
+        tempos_execucao = request.POST.getlist('tempo_execucao')
+        valores = request.POST.getlist('valor')
         
         novos_itens = []
-        for nome_item in nomes_itens:
-            novo_item = Servico.objects.create(nome=nome_item)
+        for nome, tempo_exec, valor in zip(nomes_itens, tempos_execucao, valores):
+            novo_item = Servico.objects.create(nome=nome, tempo_execucao=tempo_exec, valor=valor)
             novos_itens.append(novo_item)
+            
+        print(novos_itens)
+        print(nomes_itens, tempos_execucao, valores)
         
-        return redirect('ordem_servico')
+        return redirect('criar_ordem_servico')
+    
     return render(request, 'ordem-servico/criar.html', {'veiculos': Veiculo.objects.all()})
