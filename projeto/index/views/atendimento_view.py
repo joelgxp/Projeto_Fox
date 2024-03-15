@@ -5,15 +5,15 @@ from django.core.exceptions import ObjectDoesNotExist
 from datetime import datetime
 
 
-from index.models import Paciente, ExameForm, Exame, PagamentoForm, AtendimentoForm, Atendimento
+from index.models import Veiculo, VeiculoForm,ento
 
 @login_required
 def atendimento(request):
     if request.method == 'GET':
-        pacientes_lista = Paciente.objects.all()
+        pacientes_lista = Veiculo.objects.all()
         return render(request, 'atendimento/atendimento.html', {
-            'pacientes_em_atendimento': Atendimento.objects.filter(status=0), 
-            'pacientes_atendidos': Atendimento.objects.filter(status=1), 
+            'pacientes_em_atendimento': Veiculo.objects.filter(status=0), 
+            'pacientes_atendidos': Veiculo.objects.filter(status=1), 
             'pacientes_lista': pacientes_lista})
 
 @login_required

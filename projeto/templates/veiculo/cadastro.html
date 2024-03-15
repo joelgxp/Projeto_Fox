@@ -18,88 +18,92 @@
 <!-- end page title -->
 
 <!-- formulario cadastrar -->
+<div class="row">
+    <div class="col-xl-10">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive-sm">
+                    <h2 class="mt-0 mb-4">Cadastrar Veículo</h2>
+                    <!-- Exibir erros do formulário -->
+                    {% if form.errors %}
+                    <ul>
+                        {% for field in form %}
+                        {% for error in field.errors %}
+                        <li><strong>{{ field.label }}</strong>: {{ error }}</li>
+                        {% endfor %}
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
 
-<div class="content">
-    <div class="modal-body">
-        <h2 class="mt-0 mb-4">Cadastrar Veículo</h2>
-        <!-- Exibir erros do formulário -->
-        {% if form.errors %}
-        <ul>
-            {% for field in form %}
-            {% for error in field.errors %}
-            <li><strong>{{ field.label }}</strong>: {{ error }}</li>
-            {% endfor %}
-            {% endfor %}
-        </ul>
-        {% endif %}
+                    <form class="ps-3 pe-3" action="/veiculo/cadastro" method="POST">
+                        {% csrf_token %}
+                        <div class="row mb-3">
+                            <div class="form-group col-3">
+                                <label for="placa">Placa</label>
+                                {{ form.placa }}
+                            </div>
 
-        <form class="ps-3 pe-3" action="/veiculo/cadastro" method="POST">
-            {% csrf_token %}
-            <div class="row mb-3">
-                <div class="form-group col-2">
-                    <label for="placa">Placa</label>
-                    {{ form.placa }}
+                            <div class="form-group col-3">
+                                <label for="marca">Marca</label>
+                                {{ form.marca }}
+                            </div>
+
+                            <div class="form-group col-3">
+                                <label for="modelo">Modelo</label>
+                                {{ form.modelo }}
+                            </div>
+
+                            <div class="form-group col-3">
+                                <label for="data_entrada">Data Entrada</label>
+                                {{ form.data_entrada }}
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="form-group col-4">
+                                <label for="anoFabricacao">Ano Fabricação</label>
+                                {{ form.ano_fabricacao }}
+                            </div>
+
+                            <div class="form-group col-4">
+                                <label for="anoModelo">Ano Modelo</label>
+                                {{ form.ano_fabricacao_modelo }}
+                            </div>
+
+                            <div class="form-group col-4">
+                                <label for="cor">Cor</label>
+                                {{ form.cor }}
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="form-group col-4">
+                                <label for="chassi">Chassi</label>
+                                {{ form.chassi }}
+                            </div>
+
+                            <div class="form-group col-4">
+                                <label for="renavam">Renavam</label>
+                                {{ form.renavam }}
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+
+                            <div class="form-group col-2">
+                                <label for="complemento">Complemento</label>
+                                {{ form.complemento }}
+                            </div>
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+
+                    </form>
                 </div>
-
-                <div class="form-group col-2">
-                    <label for="marca">Marca</label>
-                    {{ form.marca }}
-                </div>
-
-                <div class="form-group col-2">
-                    <label for="modelo">Modelo</label>
-                    {{ form.modelo }}
-                </div>
-
-                <div class="form-group col-2">
-                    <label for="data_entrada">Data Entrada</label>
-                    {{ form.data_entrada }}
-                </div>
-
             </div>
-
-            <div class="row mb-3">
-                <div class="form-group col-2">
-                    <label for="anoFabricacao">Ano Fabricação</label>
-                    {{ form.ano_fabricacao }}
-                </div>
-
-                <div class="form-group col-2">
-                    <label for="anoModelo">Ano Modelo</label>
-                    {{ form.ano_fabricacao_modelo }}
-                </div>
-
-                <div class="form-group col-2">
-                    <label for="cor">Cor</label>
-                    {{ form.cor }}
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="form-group col-3">
-                    <label for="chassi">Chassi</label>
-                    {{ form.chassi }}
-                </div>
-
-                <div class="form-group col-2">
-                    <label for="renavam">Renavam</label>
-                    {{ form.renavam }}
-                </div>
-            </div>
-
-            <div class="row mb-3">
-
-                <div class="form-group col-2">
-                    <label for="complemento">Complemento</label>
-                    {{ form.complemento }}
-                </div>
-
-            </div>
-
-            <button type="submit" class="btn btn-primary">Salvar</button>
-
-        </form>
-
+        </div>
     </div>
 </div>
 <!-- end modal criar -->

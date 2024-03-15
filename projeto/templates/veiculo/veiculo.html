@@ -9,7 +9,7 @@
         <div class="page-title-box">
             <div class="page-title-left">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="/">App</a></li>
+                    <li class="breadcrumb-item"><a href="/dashboard">App</a></li>
                     <li class="breadcrumb-item active">Veículo</li>
                 </ol>
             </div>
@@ -47,11 +47,11 @@
                                 <tr>
                                     <th class="col1">Placa</th>
                                     <th class="col2">Marca</th>
-                                    <th class="col6">Modelo</th>
+                                    <th class="col2">Modelo</th>
                                     <th class="col2">Ano Fab</th>
-                                    <th class="col3">Ano Mod</th>
-                                    <th class="col3">Data Entrada</th>
-                                    <th class="col3">Ações</th>
+                                    <th class="col2">Ano Mod</th>
+                                    <th class="col2">Data Entrada</th>
+                                    <th class="col1">Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,7 +61,7 @@
                                     <td>{{ veiculo.marca }}</td>
                                     <td>{{ veiculo.modelo }}</td>
                                     <td>{{ veiculo.ano_fabricacao }}</td>
-                                    <td>{{ veiculo.ano_modelo }}</td>
+                                    <td>{{ veiculo.ano_fabricacao_modelo }}</td>
                                     <td>{{ veiculo.data_entrada | date:"d/m/Y" }}</td>
                                     <td>
                                         <a href="{% url 'veiculo_editar' veiculo.id %}" class="text-reset fs-16 px-1"

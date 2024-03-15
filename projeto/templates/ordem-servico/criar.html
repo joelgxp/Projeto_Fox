@@ -8,8 +8,8 @@
             <div class="page-title-left">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="/dashboard">App</a></li>
-                    <li class="breadcrumb-item"><a href="/atendimento">Atendimento</a></li>
-                    <li class="breadcrumb-item active">Iniciar atendimento</li>
+                    <li class="breadcrumb-item"><a href="/ordemservico">Ordem de Serviço</a></li>
+                    <li class="breadcrumb-item active">Criar</li>
                 </ol>
             </div>
         </div>
@@ -22,7 +22,7 @@
         <div class="col-xl-10">
             <div class="card">
                 <div class="card-header">
-                    <h4>Iniciar um atendimento</h4>
+                    <h4>Criar</h4>
                 </div>
                 <div class="card-body">
                     <div class="modal-body">
@@ -32,14 +32,14 @@
                         </div>
                         {% endif %}
 
-                        <form class="ps-3 pe-3" action="/atendimento/cadastro/" method="POST">
+                        <form class="ps-3 pe-3" action="/ordemservico/criar/" method="POST">
                             {% csrf_token %}
                             <div class="row mb-3">
                                 <div class="form-group col-5">
-                                <label for="paciente_select">Selecione o paciente:</label><br>
-                                <select id="paciente_select" name="paciente" class="form-select">
-                                    {% for paciente in pacientes_por_data %}
-                                    <option value="{{ paciente.guia }}">Guia: {{ paciente.guia }} - {{ paciente.nome_completo }}</option>
+                                <label for="veiculo_select">Selecione o carro:</label><br>
+                                <select id="veiculo_select" name="veiculo" class="form-select">
+                                    {% for veiculo in veiculos_por_data %}
+                                    <option value="{{ veiculo.placa }}">Placa: {{ veiculo.placa }} - {{ veiculo.modelo }}</option>
                                     {% endfor %}
                                 </select><br><br>
                                 </div>
