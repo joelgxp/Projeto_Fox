@@ -8,6 +8,10 @@ def get_ordem_servico(request):
 
 def create_ordem_servico(request):
     if request.method == 'POST':
+        placa_veiculo = request.POST.get('veiculo')
+        veiculo = Veiculo.objects.filter(placa=placa_veiculo)
+        print(veiculo)
+        
         nomes_itens = request.POST.getlist('nome_item')
         tempos_execucao = request.POST.getlist('tempo_execucao')
         valores = request.POST.getlist('valor')
