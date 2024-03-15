@@ -32,41 +32,26 @@
                         </div>
                         {% endif %}
 
-                        <form class="ps-3 pe-3" action="/ordemservico/criar/" method="POST">
+                        <form class="ps-3 pe-3" action="/ordemservico/criar" method="POST">
                             {% csrf_token %}
                             <div class="row mb-3">
                                 <div class="form-group col-5">
                                 <label for="veiculo_select">Selecione o carro:</label><br>
                                 <select id="veiculo_select" name="veiculo" class="form-select">
-                                    {% for veiculo in veiculos_por_data %}
+                                    {% for veiculo in veiculos %}
                                     <option value="{{ veiculo.placa }}">Placa: {{ veiculo.placa }} - {{ veiculo.modelo }}</option>
                                     {% endfor %}
                                 </select><br><br>
                                 </div>
                             </div>
+                            
+                            <button type="button" class="btn btn-primary" onclick="adicionarCampo()">Adicionar Item</button>
 
                             <div class="row mb-3">
-                                <div class="form-group col-5">
-                                    <label for="solicitacao">Solicitação: </label>
-                                    {{ atendimento.solicitacao }}
+                                <div id="item-fields">
                                 </div>
                             </div>
-
-                            <div class="row mb-3">
-                                <div class="form-group col-3">
-                                    <label for="metodo-pagamento">Método de Pagamento: </label>
-                                    {{ pagamento.metodo_pagamento }}
-                                </div>
-                                <div class="form-group col-3">
-                                    <label for="metodo-pagamento">Pagamento Dinheiro: </label>
-                                    {{ pagamento.valor_dinheiro }}
-                                </div>
-                                <div class="form-group col-3">
-                                    <label for="metodo-pagamento">Pagamento PIX: </label>
-                                    {{ pagamento.valor_pix }}
-                                </div>
-                            </div>
-
+                            
                             <button type="submit" class="btn btn-primary">Salvar</button>
 
                         </form>
@@ -77,4 +62,6 @@
         </div>
     </section>
 </div>
+
+
 {% endblock %}

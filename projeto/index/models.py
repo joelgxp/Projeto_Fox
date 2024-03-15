@@ -22,6 +22,8 @@ class Veiculo(models.Model):
     ano_fabricacao_modelo = models.IntegerField()
     data_entrada = models.DateField()
     complemento = models.CharField(max_length=250, null=True, blank=True)
+    status = models.BooleanField(default=0)
+    vendido = models.BooleanField(default=0)
     
     def __str__(self):
         return self.placa
@@ -30,3 +32,11 @@ class VeiculoForm(forms.ModelForm):
     class Meta:
         model = Veiculo
         fields = '__all__'
+        
+class Servico(models.Model):
+    nome = models.CharField(max_length=255)
+    tempo_execucao = models.IntegerField(null=True, blank=True)
+    valor = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    
+    def __str__(self):
+        return self.nome
