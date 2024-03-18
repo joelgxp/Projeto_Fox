@@ -26,7 +26,7 @@ class Veiculo(models.Model):
     vendido = models.BooleanField(default=0)
     
     def __str__(self):
-        return self.placa
+        return f"{self.placa, self.renavam, self.chassi, self.cor, self.marca, self.modelo, self.ano_fabricacao, self.ano_fabricacao_modelo, self.data_entrada, self.complemento, self.status, self.vendido}"
     
 class VeiculoForm(forms.ModelForm):
     class Meta:

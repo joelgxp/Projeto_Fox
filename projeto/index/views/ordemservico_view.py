@@ -7,10 +7,15 @@ def get_ordem_servico(request):
     return render(request, 'ordem-servico/ordem-servico.html', {'ordemservico': ordemservico})
 
 def create_ordem_servico(request):
+    testes = Veiculo.objects.all()
+    
+    for teste in testes:
+        print(teste)
+    
     if request.method == 'POST':
         placa_veiculo = request.POST.get('veiculo')
         veiculo = Veiculo.objects.filter(placa=placa_veiculo)
-        print(veiculo)
+        print({veiculo.modelo})
         
         nomes_itens = request.POST.getlist('nome_item')
         tempos_execucao = request.POST.getlist('tempo_execucao')
