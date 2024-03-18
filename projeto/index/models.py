@@ -34,9 +34,9 @@ class VeiculoForm(forms.ModelForm):
         fields = '__all__'
         
 class Servico(models.Model):
-    nome = models.CharField(max_length=255)
-    tempo_execucao = models.IntegerField(null=True, blank=True)
-    valor = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    nome = models.CharField(max_length=45, null=False, blank=False)
+    tempo_execucao = models.CharField(max_length=10, null=False, blank=False)
+    valor = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
     id_veiculo = models.ForeignKey(Veiculo, on_delete=models.CASCADE, null=True, blank=True)
     
     def __str__(self):
