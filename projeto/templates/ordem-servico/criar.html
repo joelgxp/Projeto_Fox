@@ -18,51 +18,63 @@
 <!-- end page title -->
 
 <div class="row">
-    <section id="fila-espera">
-        <div class="col-xl-10">
-            <div class="card">
-                <div class="card-body">
-                    <div class="modal-body">
-                        {% if erro %}
-                        <div class="alert alert-danger" role="alert">
-                            {{ erro }}
-                        </div>
-                        {% endif %}
-
-                        <form class="ps-3 pe-3" action="/ordemservico/criar" method="POST">
-                            {% csrf_token %}
-                            <div class="row mb-3">
-                                <div class="form-group col-5">
-                                    <label for="veiculo_select">Selecione o carro:</label><br>
-                                    <select id="veiculo_select" name="veiculo" class="form-select">
-                                        {% for veiculo in veiculos %}
-                                        <option value="{{ veiculo.placa }}">Placa: {{ veiculo.placa }} - {{
-                                            veiculo.modelo }}</option>
-                                        {% endfor %}
-                                    </select><br><br>
-                                </div>
-                            </div>
-                            <div class="table-responsive-sm">
-                            <div class="table-hover">
-                                <button type="button" class="btn btn-primary" onclick="adicionarCampo()">Adicionar
-                                    Item</button>
-
-                                <div class="row mb-3">
-                                    <div id="item-fields">
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary">Salvar</button>
-
-                        </form>
-
+    <div class="col-xl-10">
+        <div class="card">
+            <div class="card-body">
+                <div class="modal-body">
+                    {% if erro %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ erro }}
                     </div>
+                    {% endif %}
+
+                    <form class="ps-3 pe-3" action="/ordemservico/criar" method="POST">
+                        {% csrf_token %}
+                        <div class="row mb-3">
+                            <div class="form-group col-5">
+                                <label for="veiculo_select">Selecione o carro:</label><br>
+                                <select id="veiculo_select" name="veiculo" class="form-select">
+                                    {% for veiculo in veiculos %}
+                                    <option value="{{ veiculo.placa }}">Placa: {{ veiculo.placa }} - {{
+                                        veiculo.modelo }}</option>
+                                    {% endfor %}
+                                </select><br><br>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="table-responsive-sm" id="table-responsive-sm">
+                                <table class="table table-striped table-centered mb-0">
+                                    <button type="button" class="btn btn-primary" onclick="adicionarCampo()">Adicionar
+                                        Item</button>
+
+                                    <thead>
+                                        <tr>
+                                            <th class="col1">Nome</th>
+                                            <th class="col2">Tempo de Execução</th>
+                                            <th class="col2">Valor</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    </tbody>
+
+                                    <div class="row mb-3">
+                                        <div id="item-fields">
+                                        </div>
+                                    </div>
+                                </table>
+                            </div>
+                        </div>
                 </div>
+
+                <br>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+
+                </form>
+
             </div>
         </div>
-    </section>
+    </div>
 </div>
 
 
