@@ -35,9 +35,8 @@
                                 <label for="veiculo_select">Selecione o carro:</label><br>
                                 <select id="veiculo_select" name="veiculo" class="form-select">
                                     {% for veiculo in veiculos %}
-                                    <option value="{{ veiculo.placa }}">Placa: {{ veiculo.placa }} - {{ veiculo.modelo }}</option>
-                                    {% endfor %}
-                                </select><br><br>
+                                    <option value="{{ veiculo.placa }}">Placa: {{ veiculo.placa }} - {{ veiculo.modelo }}</option>{% endfor %}
+                                </select><br>
                             </div>
                         </div>
                         <div class="card-footer">
@@ -61,7 +60,8 @@
                                             <td>{{ item.nome }}</td>
                                             <td>{{ item.tempo_execucao }}</td>
                                             <td>{{ item.valor }}</td>
-                                            <td><a href="#" class="btn btn-danger">Excluir</a></td>
+                                            <td><a class="text-reset fs-16 px-1" title="Editar"> <i
+                                                        class="ri-edit-2-line"></i></a></td>
                                         </tr>
                                         {% endfor %}
                                     </tbody>
