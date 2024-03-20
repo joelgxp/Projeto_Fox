@@ -7,7 +7,7 @@
         <div class="page-title-box">
             <div class="page-title-left">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="/dashboard">App</a></li>                    
+                    <li class="breadcrumb-item"><a href="/dashboard">App</a></li>
                     <li class="breadcrumb-item active">Ordem de Serviço</li>
                 </ol>
             </div>
@@ -23,7 +23,7 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-sm-7">
-                        <a href="/ordemservico/criar" type="button" class="btn btn-secondary">Cadastrar</a>
+                        <a href="/ordemservico/criar" type="button" class="btn btn-secondary">Cadastrar OS</a>
                     </div>
                     <div class="col-sm-5">
                         <div class="app-search d-none d-lg-block">
@@ -43,18 +43,21 @@
                             <thead>
                                 <tr>
                                     <th class="col3">Data OS</th>
-                                    <th class="col3">Solicitação</th>                                    
-                                    <th class="col2">Conclusão</th>
-                                    <th class="col5">Complemento</th>
+                                    <th class="col5">Veículo</th>
+                                    <th class="col3">Placa</th>
+                                    <th class="col2">Status</th>
+                                    <th class="col2">Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for os in ordensservico %}
+                                {% for os in ordemservico %}
                                 <tr>
-                                    <td>{{ os.data_os | date:"d/m/Y" }}</td>
-                                    <td>{{ os.solicitacao }}</td>
-                                    <td>{{ os.conclusao }}</td>
-                                    <td>{{ os.complemento }}</td>
+                                    <td>{{ os.data | date:"d/m/Y" }}</td>
+                                    <td>{{ os.veiculo.modelo }}</td>
+                                    <td>{{ os.veiculo.placa }}</td>
+                                    <td>{{ os.status }}</td>
+                                    <td><a href="/ordemservico/editar/{{ os.id }}" type="button"
+                                            class="btn btn-primary">Editar</a></td>
                                 </tr>
                                 {% endfor %}
                             </tbody>

@@ -1,22 +1,6 @@
-"""
-URL configuration for base project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
-from index.views import index_view, auth_login_view, auth_register_view, usuarios_view, veiculo_view, ordemservico_view
+from index.views import index_view, auth_login_view, auth_register_view, usuarios_view, veiculo_view, ordemservico_view, dashboard_view
 
 
 urlpatterns = [
@@ -29,7 +13,7 @@ urlpatterns = [
     path('auth_register/', auth_register_view.auth_register, name='auth_register'),
     path('auth_logout/', auth_login_view.auth_logout, name='auth_logout'),
     
-    path('dashboard/', index_view.dashboard, name='dashboard'),
+    path('dashboard/', dashboard_view.get_veiculos, name='dashboard'),
     path('profile/', index_view.profile, name='profile'),
     
     path('veiculos/', veiculo_view.get_veiculos, name='veiculos'),

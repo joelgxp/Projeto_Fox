@@ -37,7 +37,19 @@ class Servico(models.Model):
     nome = models.CharField(max_length=45, null=False, blank=False)
     tempo_execucao = models.CharField(max_length=10, null=False, blank=False)
     valor = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
-    id_veiculo = models.ForeignKey(Veiculo, on_delete=models.CASCADE, null=True, blank=True)
     
     def __str__(self):
         return self.nome
+    
+class OrdemServico(models.Model):
+    STATUS_CHOICES = [
+        (0, 'Aberta'), (1, 'Pendente'), (2, 'Concluída'), (3, 'Cancelada')
+    ]
+    data = models.DateField()
+    veiculo = models.ForeignKey(Veiculo, on_delete=models.CASCADE)
+    servico = models.ForeignKey(Servico, on_delete=models.CASCADE)
+    status = models.IntegerField(choices=STATUS_CHOICES, default=0)
+    
+    def __str__(self):
+        return f"OS: {self.data, self.veiculo, self.servico, self.status}"
+    
