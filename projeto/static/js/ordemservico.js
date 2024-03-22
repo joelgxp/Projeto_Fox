@@ -53,3 +53,28 @@ function adicionarCampo() {
     var formGroup = document.getElementById("item-fields");
     formGroup.appendChild(div);
 }
+
+function add_servico(){
+
+    container = document.getElementById("item-fields")
+
+    html = `
+    <br>
+    <div class='row'> 
+        <div class='col-md'> 
+            <input type='text' placeholder='Serviço' class='form-control' name='servico'>
+        </div> 
+        <div class='col-md'>
+            <input type='text' placeholder='Tempo de Execução' class='form-control' name='tempo_execucao'>
+        </div> 
+        <div class='col-md'>
+            <input type='text' placeholder='Valor' class='form-control' name='valor'>
+        </div> 
+    </div>
+    <br>
+    `
+
+    container.innerHTML += html
+
+
+}

@@ -22,5 +22,6 @@ urlpatterns = [
     
     path('ordemservico/', ordemservico_view.get_ordem_servico, name='ordem_servico'),
     path('ordemservico/criar', ordemservico_view.create_ordem_servico, name='criar_ordem_servico'),
+    path('ordemservico/editar/<int:id>', ordemservico_view.edit_ordem_servico, name='editar_ordem_servico'),
     
 ]

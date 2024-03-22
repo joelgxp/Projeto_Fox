@@ -37,52 +37,48 @@
                     <form class="ps-3 pe-3" action="/veiculo/cadastro" method="POST">
                         {% csrf_token %}
                         <div class="row mb-3">
-                            <div class="form-group col-2">
-                                <label for="placa">Placa</label>
-                                {{ form.placa }}
+                            <div class="form-group col">
+                                <label for="placa" class="form-label">Placa: {{ form.placa }}</label>                                
                             </div>
 
-                            <div class="form-group col-2">
-                                <label for="marca">Marca</label>
-                                {{ form.marca }}
+                            <div class="form-group col">
+                                <label for="marca" class="form-label">Marca: {{ form.marca }}</label>
                             </div>
 
-                            <div class="form-group col-2">
-                                <label for="modelo">Modelo</label>
-                                {{ form.modelo }}
+                            <div class="form-group col" class="form-label">
+                                <label for="modelo">Modelo: {{ form.placa }}</label>                                
                             </div>
 
-                            <div class="form-group col-2">
-                                <label for="data_entrada">Data Entrada</label>
-                                {{ form.data_entrada }}
+                            <div class="form-group col" class="form-label">
+                                <label for="data_entrada">Data Entrada: {{ form.data_entrada }}</label>                                
                             </div>
 
                         </div>
 
                         <div class="row mb-3">
-                            <div class="form-group col-2">
+                            <div class="form-group col">
                                 <label for="anoFabricacao">Ano Fabricação</label>
                                 {{ form.ano_fabricacao }}
                             </div>
 
-                            <div class="form-group col-2">
+                            <div class="form-group col">
                                 <label for="anoModelo">Ano Modelo</label>
                                 {{ form.ano_fabricacao_modelo }}
                             </div>
 
-                            <div class="form-group col-2">
+                            <div class="form-group col">
                                 <label for="cor">Cor</label>
                                 {{ form.cor }}
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <div class="form-group col-2">
+                            <div class="form-group col">
                                 <label for="chassi">Chassi</label>
                                 {{ form.chassi }}
                             </div>
 
-                            <div class="form-group col-2">
+                            <div class="form-group col">
                                 <label for="renavam">Renavam</label>
                                 {{ form.renavam }}
                             </div>
@@ -90,7 +86,7 @@
 
                         <div class="row mb-3">
 
-                            <div class="form-group col-2">
+                            <div class="form-group col">
                                 <label for="complemento">Complemento</label>
                                 {{ form.complemento }}
                             </div>

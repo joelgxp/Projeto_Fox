@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}Criar Ordem de Serviço{% endblock %}
+{% block title %}Editar Ordem de Serviço{% endblock %}
 
 {% block content %}
 
@@ -14,7 +14,7 @@
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="/dashboard">App</a></li>
                     <li class="breadcrumb-item"><a href="/ordemservico">Ordem de Serviço</a></li>
-                    <li class="breadcrumb-item active">Criar</li>
+                    <li class="breadcrumb-item active">Editar</li>
                 </ol>
             </div>
         </div>
@@ -33,24 +33,8 @@
                     </div>
                     {% endif %}
 
-                    <form class="ps-3 pe-3" action="/ordemservico/criar" method="POST">
+                    <form class="ps-3 pe-3" action="/ordemservico/editar/{{ ordemservico.id }}" method="POST">
                         {% csrf_token %}
-                        <div class="row mb-3">
-                            <div class="form-group col-5">
-                                <select id="veiculo_select" name="veiculo_id" class="form-select">
-                                    {% for veiculo in veiculos %}
-                                    <option value="{{ veiculo.id }}">Placa: {{ veiculo.placa }} - Modelo: {{ veiculo.modelo }}</option>
-                                    {% endfor %}
-                                </select><br>
-                            </div>
-                            <div class="form-group col-4">
-                                <input type="date" class="form-control" id="data_os" name="data">
-                            </div>
-                            <div class="form-group col-3">
-                                <button type="button" class="btn btn-primary" onclick="add_servico()">Adicionar                                
-                                    Item</button>
-                            </div>
-                        </div>
                         <div class="row mb-3" id="item-fields">
                         </div>
                         <div class="card-footer">
@@ -64,15 +48,16 @@
                                             <th class="col2">Ações</th>
                                         </tr>
                                     </thead>
+                                    <h4>Veículo: {{ ordemservico.veiculo.modelo }}</h4>
 
                                     <tbody>
-                                        {% for item in itens %}
+                                        {% for servico in servicos %}
                                         <tr>
-                                            <td>{{ item.nome }}</td>
-                                            <td>{{ item.tempo_execucao }}</td>
-                                            <td>{{ item.valor }}</td>
-                                            <td><a class="text-reset fs-16 px-1" title="Editar"> <i
-                                                        class="ri-edit-2-line"></i></a></td>
+                                            <td>{{ servico.nome }}</td>
+                                            <td>{{ servico.tempo_execucao }}</td>
+                                            <td>{{ servico.valor }}</td>
+                                            <td><a class="text-reset fs-16 px-1" title="Excluir"> <i
+                                                        class="ri-delete-bin-2-line"></i></a></td>
                                         </tr>
                                         {% endfor %}
                                     </tbody>
