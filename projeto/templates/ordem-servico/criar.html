@@ -39,49 +39,54 @@
                             <div class="form-group col-5">
                                 <select id="veiculo_select" name="veiculo_id" class="form-select">
                                     {% for veiculo in veiculos %}
-                                    <option value="{{ veiculo.id }}">Placa: {{ veiculo.placa }} - Modelo: {{ veiculo.modelo }}</option>
+                                    <option value="{{ veiculo.id }}">Placa: {{veiculo.placa}} - Modelo:
+                                        {{veiculo.modelo}}</option>
                                     {% endfor %}
                                 </select><br>
                             </div>
                             <div class="form-group col-4">
                                 <input type="date" class="form-control" id="data_os" name="data">
                             </div>
+
                             <div class="form-group col-3">
-                                <button type="button" class="btn btn-primary" onclick="add_servico()">Adicionar                                
-                                    Item</button>
+                                <button type="submit" class="btn btn-primary">Criar OS</button>
                             </div>
                         </div>
-                        <div class="row mb-3" id="item-fields">
-                        </div>
+                    </form>
+                    <form class="ps-3 pe-3" action="/ordemservico/adicionarServico" method="POST">
                         <div class="card-footer">
                             <div class="table-responsive-sm">
                                 <table class="table table-striped table-centered mb-0">
-                                    <thead>
-                                        <tr>
-                                            <th class="col2">Nome</th>
-                                            <th class="col2">Tempo de Execução</th>
-                                            <th class="col2">Valor</th>
-                                            <th class="col2">Ações</th>
-                                        </tr>
-                                    </thead>
+                                    <div class="row mb-3" id="item-fields">
+                                        <div class='row'>
+                                            <div class='col-5'>
+                                                <input type='text' placeholder='Serviço' class='form-control'
+                                                    name='servico'>
+                                            </div>
+                                            <div class='col-md'>
+                                                <input type='text' placeholder='Tempo de Execução' class='form-control'
+                                                    name='tempo_execucao'>
+                                            </div>
+                                            <div class='col-md'>
+                                                <input type='text' placeholder='Valor' class='form-control'
+                                                    name='valor'>
+                                            </div>
+                                            <div class='col-md'>
+                                                <button type="button" class="btn btn-danger"
+                                                    onclick="remove_servico(this)">Remover</button>
+                                            </div>
+                                            <div class='col-md'>
+                                                <button type="button" class="btn btn-secondary"
+                                                    onclick="add_servico()">Adicionar</button>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                    <tbody>
-                                        {% for item in itens %}
-                                        <tr>
-                                            <td>{{ item.nome }}</td>
-                                            <td>{{ item.tempo_execucao }}</td>
-                                            <td>{{ item.valor }}</td>
-                                            <td><a class="text-reset fs-16 px-1" title="Editar"> <i
-                                                        class="ri-edit-2-line"></i></a></td>
-                                        </tr>
-                                        {% endfor %}
-                                    </tbody>
+                                    <br>
+                                    <button type="submit" class="btn btn-primary">Salvar</button>
                                 </table>
                             </div>
                         </div>
-
-                        <br>
-                        <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
 
                 </form>
@@ -96,5 +101,5 @@
 
 
 {% block script %}
-    <script src="{% static 'js/ordemservico.js' %}"></script>
+<script src="{% static 'js/ordemservico.js' %}"></script>
 {% endblock %}
