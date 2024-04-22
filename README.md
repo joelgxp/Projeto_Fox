@@ -23,4 +23,5 @@
 - python ./projeto/manage.py runserver
 
 Acesse http://localhost:8000/ em seu navegador.
+http://146.235.38.10/
 
